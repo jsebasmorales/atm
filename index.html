@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon" />
+        <title>Financial Group | ATM</title>
+    </head>
+    <body>
+        <section class="cajero">
+            <section class="imgBanco">
+                <img src="./assets/logo_horizontal.png" class="imgLogo" alt="" />
+            </section>
+            <section id="bienvenida" class="card">
+                <h2>Bienvenido a Financial Group</h2>
+                <button id="bienvenida" onclick="ingresoUsuario()">Ingresar</button>
+            </section>
+            <!-- INGRESO CAJERO -->
+            <section id="loginUsuario" class="card">
+                <h2>Selecciona tu usuario</h2>
+                <div class="botonesOpciones">
+                    <button onclick="mali ()">Mali</button>
+                    <button onclick="gera ()">Gera</button>
+                    <button onclick="maui ()">Maui</button>
+                </div>
+            </section>
+            <!-- CLAVE USUARIO-->
+            <section id="claveUsuario" class="card">
+                <h2>Selecciona tu clave</h2>
+                <input type="password" id="claveIngresada" placeholder="Ingresa tu clave" />
+                <span id="mensajeError"></span>
+                <button onclick="validacionClave ()">Ingresar</button>
+            </section>
+            <!-- OPCIONES CAJERO -->
+            <section id="opcionesCajero" class="card">
+                <h2>¿Qué deseas hacer hoy?</h2>
+                <div class="botonesOpciones">
+                    <button onclick="verSaldo()">Ver saldo</button>
+                    <button onclick="ingresarSaldo ()">Ingresar saldo</button>
+                    <button>Retirar saldo</button>
+                    <button>Cambiar contraseña</button>
+                </div>
+            </section>
+            <!-- OPCIONES CAJERO // VER SALDO -->
+            <section id="verSaldo" class="card">
+                <h2>Tu saldo actual es:</h2>
+                <span id="saldoCliente"></span>
+            </section>
+            <!-- OPCIONES CAJERO // AGREGAR SALDO -->
+            <section id="agregarSaldo" class="card">
+                <h2>¿Cuánto dineo quieres ingresar?</h2>
+                <div class="botonesOpciones">
+                    <button>10</button>
+                    <button>20</button>
+                    <button>50</button>
+                    <button>100</button>
+                </div>
+                <div class="saldoDiferente">
+                    <input type="number" id="saldoIngresado" placeholder="Ingresa un monto diferente" />
+                    <button onclick="inputSaldo ()">Ingresar saldo diferente</button>
+                </div>
+                <span id="alertaCupo"></span>
+            </section>
+            <!-- OPCIONES CAJERO // INGRESAR SALDO -->
+            <section id="retirarSaldo" class="card">
+                <h2>¿Cuánto dineo quieres retirar?</h2>
+                <div class="botonesOpciones">
+                    <button>10</button>
+                    <button>20</button>
+                    <button>50</button>
+                    <button>100</button>
+                </div>
+                <div class="saldoDiferente">
+                    <input type="number" placeholder="Ingresa un monto diferente" />
+                    <button>Ingresar saldo diferente</button>
+                </div>
+                <span>Alerta Cupo JS</span>
+            </section>
+            <!-- OPCIONES CAJERO // VER SALDO INGRESADO  Y TOTAL -->
+            <section id="saldoTotal" class="card">
+                <h2>Acabas de ingresar:</h2>
+                <span id="saldoIngresadoCliente"></span>
+                <h2>El total en tu cuenta es de:</h2>
+                <span id="saldoTotalCliente"></span>
+            </section>
+            <!-- OPCIONES CAJERO // CAMBIAR CONTRASEÑA -->
+            <section id="cambiarContraseña" class="card">
+                <h2>Ingresa la contraseña nueva</h2>
+                <input type="password" placeholder="Ingresa la contraseña nueva" />
+                <button>Cambiar contraseña</button>
+                <span>Alerta Confirmación JS</span>
+            </section>
+        </section>
+        <script src="./index.js"></script>
+    </body>
+</html>
