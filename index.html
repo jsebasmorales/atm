@@ -25,13 +25,19 @@
                     <button onclick="gera ()">Gera</button>
                     <button onclick="maui ()">Maui</button>
                 </div>
+                <img src="./assets/arrow_blanca.png" class="arrowButton" id="arrowLogin" onclick="backArrowLogin ()" alt="">
             </section>
             <!-- CLAVE USUARIO-->
             <section id="claveUsuario" class="card">
                 <h2>Selecciona tu clave</h2>
-                <input type="password" id="claveIngresada" placeholder="Ingresa tu clave" />
-                <span id="mensajeError"></span>
-                <button onclick="validacionClave ()">Ingresar</button>
+                <div class="clave">
+                    <div class="claveVertical">
+                        <input type="password" id="claveIngresada" placeholder="Ingresa tu clave" />
+                        <span class="mensajeError" id="errorClave"></span>
+                    </div>                
+                    <button onclick="validacionClave ()">Ingresar</button>
+                </div>                
+                <img src="./assets/arrow_blanca.png" class="arrowButton" id="arrowClave" onclick="backArrowClave ()" alt="">
             </section>
             <!-- OPCIONES CAJERO -->
             <section id="opcionesCajero" class="card">
@@ -39,58 +45,44 @@
                 <div class="botonesOpciones">
                     <button onclick="verSaldo()">Ver saldo</button>
                     <button onclick="ingresarSaldo ()">Ingresar saldo</button>
-                    <button>Retirar saldo</button>
-                    <button>Cambiar contraseña</button>
+                    <button onclick="retirarSaldo ()">Retirar saldo</button>
+                    <!-- <button>Cambiar contraseña</button> -->
                 </div>
+                <img src="./assets/arrow_blanca.png" class="arrowButton" id="arrowOpciones" onclick="backArrowOpciones()" alt="">
             </section>
             <!-- OPCIONES CAJERO // VER SALDO -->
             <section id="verSaldo" class="card">
                 <h2>Tu saldo actual es:</h2>
                 <span id="saldoCliente"></span>
+                <img src="./assets/arrow_blanca.png" class="arrowButton" id="arrowSaldo" onclick="backArrowSaldo()" alt="">
             </section>
             <!-- OPCIONES CAJERO // AGREGAR SALDO -->
             <section id="agregarSaldo" class="card">
                 <h2>¿Cuánto dineo quieres ingresar?</h2>
-                <div class="botonesOpciones">
-                    <button>10</button>
-                    <button>20</button>
-                    <button>50</button>
-                    <button>100</button>
-                </div>
                 <div class="saldoDiferente">
                     <input type="number" id="saldoIngresado" placeholder="Ingresa un monto diferente" />
                     <button onclick="inputSaldo ()">Ingresar saldo diferente</button>
                 </div>
-                <span id="alertaCupo"></span>
+                <span class="mensajeError" id="alertaCupo"></span>
+                <img src="./assets/arrow_blanca.png" class="arrowButton" id="arrowAgregar" onclick="backArrowAgregar()" alt="">
             </section>
-            <!-- OPCIONES CAJERO // INGRESAR SALDO -->
+            <!-- OPCIONES CAJERO // RETIRAR SALDO -->
             <section id="retirarSaldo" class="card">
                 <h2>¿Cuánto dineo quieres retirar?</h2>
-                <div class="botonesOpciones">
-                    <button>10</button>
-                    <button>20</button>
-                    <button>50</button>
-                    <button>100</button>
-                </div>
                 <div class="saldoDiferente">
-                    <input type="number" placeholder="Ingresa un monto diferente" />
-                    <button>Ingresar saldo diferente</button>
+                    <input type="number" id="saldoIngresadoRetirar" placeholder="Ingresa un monto diferente" />
+                    <button onclick="inputSaldoRetiro ()">Ingresar saldo diferente</button>
                 </div>
-                <span>Alerta Cupo JS</span>
+                <span class="mensajeError" id="alertaCupoRetiro"></span>
+                <img src="./assets/arrow_blanca.png" class="arrowButton" id="arrowRetirar" onclick="backArrowRetirar()" alt="">
             </section>
             <!-- OPCIONES CAJERO // VER SALDO INGRESADO  Y TOTAL -->
             <section id="saldoTotal" class="card">
                 <h2>Acabas de ingresar:</h2>
-                <span id="saldoIngresadoCliente"></span>
+                <span id="saldoIngresadoCliente">$</span>
                 <h2>El total en tu cuenta es de:</h2>
                 <span id="saldoTotalCliente"></span>
-            </section>
-            <!-- OPCIONES CAJERO // CAMBIAR CONTRASEÑA -->
-            <section id="cambiarContraseña" class="card">
-                <h2>Ingresa la contraseña nueva</h2>
-                <input type="password" placeholder="Ingresa la contraseña nueva" />
-                <button>Cambiar contraseña</button>
-                <span>Alerta Confirmación JS</span>
+                <img src="./assets/arrow_blanca.png" class="arrowButton" id="arrowVerSaldo" onclick="backArrowVerSaldo()" alt="">
             </section>
         </section>
         <script src="./index.js"></script>

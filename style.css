@@ -30,12 +30,12 @@ button {
     width: 120px;
     height: 40px;
     border-radius: 50px;
-    background-color: transparent;
-    border: 3px solid rgb(0, 0, 0);
-    /* background: linear-gradient(145deg, #f0f0f0, #cacaca); 
-    box-shadow:  0px 0px 2px #000;*/
+    background: rgba(255,255, 255, 0.3);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
     margin: 20px 15px;
     font-weight: 600;
+    transition: ease .2s;
 }
 
 button:hover {
@@ -43,7 +43,7 @@ button:hover {
     background: linear-gradient(125deg, rgba(255,252,2,1) 0%, rgba(210,84,0,1) 100%);
     color: white;
     border: 0px solid rgb(0, 0, 0);
-    
+    transform: scale(1.1);
 }
 
 /* --- INPUT --- */
@@ -76,6 +76,19 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0; 
 }
 
+.arrowButton {
+    cursor: pointer;
+    width: 35px;
+    background: linear-gradient(125deg, rgba(255,252,2,1) 0%, rgba(210,84,0,1) 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(0,0,0,.8) ;
+    transition: ease .2s;
+}
+
+.arrowButton:hover {
+    transform: scale(1.1);
+}
+
 /* --- CAJERO GLOBAL --- */
 
 .cajero {
@@ -84,7 +97,8 @@ input[type=number]::-webkit-outer-spin-button {
     align-items: center;
     border-radius: 20px;
     width: 650px;
-    height: 600px;
+    height: 450px;
+    max-height: 600px;
     background: rgba(255,255,255,0.65);
     backdrop-filter: blur(6px);
     border: 1px solid rgba(255,255,255,0.325);
@@ -122,6 +136,16 @@ input[type=number]::-webkit-outer-spin-button {
     align-self: center;
 }
 
+.clave {
+    display: flex;
+    flex-direction: row;
+}
+
+.claveVertical {
+    display: flex;
+    flex-direction: column;
+}
+
 #loginUsuario,
 #claveUsuario,
 #opcionesCajero,
@@ -133,14 +157,15 @@ input[type=number]::-webkit-outer-spin-button {
     display: none;
 }
 
-#mensajeError,#alertaCupo {
-    margin: 10px 0;
+.mensajeError {
+    margin-bottom: 10px;
     font-size: 10px;
     font-weight: 700;
     color: red;
     width: 250px;
     text-align: center;
 }
+
 
 #saldoCliente, #saldoIngresadoCliente, #saldoTotalCliente {
     font-size: 22px;

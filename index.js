@@ -4,6 +4,7 @@ let cuentas = [
     {nombre: "Maui", saldo: 67, password: 1234}
 ];
 
+
 // Variables Globales
 let usuarioActual;
 let saldoActual;
@@ -66,7 +67,7 @@ function checkContraseña (inputContraseña) {
             break;
         } else {
             const resultado = document.createTextNode (`La contraseña está errada. Inténtalo de nuevo`);
-            const numeroFinal = document.getElementById("mensajeError");
+            const numeroFinal = document.getElementById("errorClave");
             numeroFinal.innerHTML = "";
             numeroFinal.appendChild (resultado);
         }
@@ -118,9 +119,93 @@ function mostrarTransacción (saldoIngresado, saldoActual) {
     mostrarDinero.innerHTML = "";
     mostrarDinero.appendChild (dineroIngresado);
 
+    // const s = JSON.stringify (document.createTextNode (`$${(saldoIngresado + saldoActual)}`));
+    // const d = parseInt(s);
+    // console.log (s);
+    // console.log (typeof s);
+    // console.log (d);
+    // console.log (typeof d);
     const dinerototal = document.createTextNode (`$${(saldoIngresado + saldoActual)}`);
     const mostrarTotal = document.getElementById ("saldoTotalCliente");
     mostrarTotal.innerHTML = "";
     mostrarTotal.appendChild (dinerototal);
+}
+
+// Retirar Saldo
+function retirarSaldo () {
+    document.getElementById("opcionesCajero").style.display = "none";
+    document.getElementById("retirarSaldo").style.display = "inherit";
+}
+
+// Recibe el saldo ingresado por el cliente y lo envía a la función para revisar si sobrepasa el monto. 
+function inputSaldoRetiro () {
+    const saldoIngresado = parseInt(document.getElementById ("saldoIngresadoRetirar").value);
+    checkSaldoRetirar (saldoIngresado);
+}
+
+// Valida el monto ingresado.
+function checkSaldoRetirar (saldoIngresado) {
+    console.log (saldoIngresado);
+    console.log (saldoActual);
+    if ((saldoActual - saldoIngresado) < 10){
+        const mensajeError = document.createTextNode ("Debes dejar mínimo $10 en tu cuenta. Ingresa un valor inferior.")
+        const mensajeUsuario = document.getElementById ("alertaCupoRetiro");
+        mensajeUsuario.innerHTML = "";
+        mensajeUsuario.appendChild (mensajeError);
+    } else {
+        mostrarTransacciónRetiro (saldoIngresado, saldoActual);
+    }
+}
+
+function mostrarTransacciónRetiro (saldoIngresado, saldoActual) {
+    document.getElementById("retirarSaldo").style.display = "none";
+    document.getElementById("saldoTotal").style.display = "inherit";
+
+    const dineroIngresado = document.createTextNode (`$${saldoIngresado}`);
+    const mostrarDinero = document.getElementById("saldoIngresadoCliente");
+    mostrarDinero.innerHTML = "";
+    mostrarDinero.appendChild (dineroIngresado);
+
+    const dinerototal = document.createTextNode (`$${(saldoActual - saldoIngresado)}`);
+    const mostrarTotal = document.getElementById ("saldoTotalCliente");
+    mostrarTotal.innerHTML = "";
+    mostrarTotal.appendChild (dinerototal);
+}
+
+// ARROWS
+
+function backArrowLogin () {
+    document.getElementById("loginUsuario").style.display = "none";
+    document.getElementById("bienvenida").style.display = "inherit";
+}
+
+function backArrowClave () {
+    document.getElementById("claveUsuario").style.display = "none";
+    document.getElementById("loginUsuario").style.display = "inherit";
+}
+
+function backArrowOpciones () {
+    document.getElementById("opcionesCajero").style.display = "none";
+    document.getElementById("claveUsuario").style.display = "inherit";
+}
+
+function backArrowSaldo () {
+    document.getElementById("verSaldo").style.display = "none";
+    document.getElementById("opcionesCajero").style.display = "inherit";
+}
+
+function backArrowAgregar () {
+    document.getElementById("agregarSaldo").style.display = "none";
+    document.getElementById("opcionesCajero").style.display = "inherit";
+}
+
+function backArrowRetirar () {
+    document.getElementById("retirarSaldo").style.display = "none";
+    document.getElementById("opcionesCajero").style.display = "inherit";
+}
+
+function backArrowVerSaldo () {
+    document.getElementById("saldoTotal").style.display = "none";
+    document.getElementById("opcionesCajero").style.display = "inherit";
 }
 
