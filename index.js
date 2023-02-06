@@ -126,6 +126,7 @@ function mostrarTransacción (saldoIngresado, saldoActual) {
     // console.log (d);
     // console.log (typeof d);
     const dinerototal = document.createTextNode (`$${(saldoIngresado + saldoActual)}`);
+    saldoActual = saldoIngresado + saldoActual;
     const mostrarTotal = document.getElementById ("saldoTotalCliente");
     mostrarTotal.innerHTML = "";
     mostrarTotal.appendChild (dinerototal);
