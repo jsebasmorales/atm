@@ -6,9 +6,9 @@ let cuentas = [
 
 
 // Variables Globales
-let usuarioActual;
-let saldoActual;
-let passwordActual;
+let usuarioActual = 0;
+let saldoActual = 0;
+let passwordActual = 0;
 
 // Function para ocultar la pantalla principal y mostar los usuarios.
 function ingresoUsuario () {
@@ -24,7 +24,7 @@ function mali () {
     passwordActual = cuentas[0].password;
 
     document.getElementById("loginUsuario").style.display = "none";
-    document.getElementById("claveUsuario").style.display = "inherit";
+    limpiarYMostrarInputClave ();
 }
 
 // Function guardar en las variables globales los datos del usuario.
@@ -35,7 +35,7 @@ function gera () {
     passwordActual = cuentas[1].password;
 
     document.getElementById("loginUsuario").style.display = "none";
-    document.getElementById("claveUsuario").style.display = "inherit";
+    limpiarYMostrarInputClave ();
 }
 
 // Function guardar en las variables globales los datos del usuario.
@@ -46,13 +46,21 @@ function maui () {
     passwordActual = cuentas[2].password;
 
     document.getElementById("loginUsuario").style.display = "none";
+    // document.getElementById("claveUsuario").style.display = "inherit";
+    limpiarYMostrarInputClave ();
+}
+
+function limpiarYMostrarInputClave () {
+    document.getElementById("claveIngresada").value = "";
+
+    document.getElementById("errorClave").innerHTML = "";
+
     document.getElementById("claveUsuario").style.display = "inherit";
 }
 
 // Function que recibe el valor del input de password y lo asigna a una variable. 
 // Se ejecuta la function checkConstraseña y se envía el valor del input de pass.
 function validacionClave () {
-
     let inputContraseña = document.getElementById ("claveIngresada").value; 
     checkContraseña (inputContraseña);
 }
@@ -85,9 +93,19 @@ function verSaldo () {
     mensajeSaldo.appendChild(saldoUsuario);
 }
 
+
+
 // Ingresar Saldo
 function ingresarSaldo () {
     document.getElementById("opcionesCajero").style.display = "none";
+    limpiarYMostrarAgregarSaldo ();
+}
+
+function limpiarYMostrarAgregarSaldo () {
+    document.getElementById("saldoIngresado").value = "";
+
+    document.getElementById("alertaCupo").innerHTML = "";
+
     document.getElementById("agregarSaldo").style.display = "inherit";
 }
 
@@ -105,6 +123,8 @@ function checkSaldo (saldoIngresado) {
         mensajeUsuario.innerHTML = "";
         mensajeUsuario.appendChild (mensajeError);
     } else {
+        saldoActual += saldoIngresado;
+        console.log (saldoActual);
         mostrarTransacción (saldoIngresado, saldoActual);
     }
 }
@@ -119,13 +139,7 @@ function mostrarTransacción (saldoIngresado, saldoActual) {
     mostrarDinero.innerHTML = "";
     mostrarDinero.appendChild (dineroIngresado);
 
-    // const s = JSON.stringify (document.createTextNode (`$${(saldoIngresado + saldoActual)}`));
-    // const d = parseInt(s);
-    // console.log (s);
-    // console.log (typeof s);
-    // console.log (d);
-    // console.log (typeof d);
-    const dinerototal = document.createTextNode (`$${(saldoIngresado + saldoActual)}`);
+    const dinerototal = document.createTextNode (`$${saldoActual}`);
     saldoActual = saldoIngresado + saldoActual;
     const mostrarTotal = document.getElementById ("saldoTotalCliente");
     mostrarTotal.innerHTML = "";
@@ -135,6 +149,14 @@ function mostrarTransacción (saldoIngresado, saldoActual) {
 // Retirar Saldo
 function retirarSaldo () {
     document.getElementById("opcionesCajero").style.display = "none";
+    limpiarYMostrarRetirarSaldo ();
+}
+
+function limpiarYMostrarRetirarSaldo () {
+    document.getElementById("saldoIngresadoRetirar").value = "";
+
+    document.getElementById("alertaCupoRetiro").innerHTML = "";
+
     document.getElementById("retirarSaldo").style.display = "inherit";
 }
 
@@ -154,6 +176,7 @@ function checkSaldoRetirar (saldoIngresado) {
         mensajeUsuario.innerHTML = "";
         mensajeUsuario.appendChild (mensajeError);
     } else {
+        saldoActual -= saldoIngresado;
         mostrarTransacciónRetiro (saldoIngresado, saldoActual);
     }
 }
@@ -167,7 +190,7 @@ function mostrarTransacciónRetiro (saldoIngresado, saldoActual) {
     mostrarDinero.innerHTML = "";
     mostrarDinero.appendChild (dineroIngresado);
 
-    const dinerototal = document.createTextNode (`$${(saldoActual - saldoIngresado)}`);
+    const dinerototal = document.createTextNode (`$${saldoActual}`);
     const mostrarTotal = document.getElementById ("saldoTotalCliente");
     mostrarTotal.innerHTML = "";
     mostrarTotal.appendChild (dinerototal);
@@ -187,7 +210,7 @@ function backArrowClave () {
 
 function backArrowOpciones () {
     document.getElementById("opcionesCajero").style.display = "none";
-    document.getElementById("claveUsuario").style.display = "inherit";
+    document.getElementById("bienvenida").style.display = "inherit";
 }
 
 function backArrowSaldo () {
