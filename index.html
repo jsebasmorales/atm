@@ -19,7 +19,7 @@
             </section>
             <!-- INGRESO CAJERO -->
             <section id="loginUsuario" class="card">
-                <h2>Selecciona tu usuario</h2>
+                <h3>Selecciona tu usuario</h3>
                 <div class="botonesOpciones">
                     <button onclick="mali ()">Mali</button>
                     <button onclick="gera ()">Gera</button>
@@ -29,7 +29,7 @@
             </section>
             <!-- CLAVE USUARIO-->
             <section id="claveUsuario" class="card">
-                <h2>Selecciona tu clave</h2>
+                <h3>Ingresa tu clave</h3>
                 <div class="clave">
                     <div class="claveVertical">
                         <input type="password" id="claveIngresada" placeholder="Ingresa tu clave" />
@@ -41,7 +41,7 @@
             </section>
             <!-- OPCIONES CAJERO -->
             <section id="opcionesCajero" class="card">
-                <h2>¿Qué deseas hacer hoy?</h2>
+                <h3>¿Qué deseas hacer hoy?</h3>
                 <div class="botonesOpciones">
                     <button onclick="verSaldo()">Ver saldo</button>
                     <button onclick="ingresarSaldo ()">Ingresar saldo</button>
@@ -52,36 +52,36 @@
             </section>
             <!-- OPCIONES CAJERO // VER SALDO -->
             <section id="verSaldo" class="card">
-                <h2>Tu saldo actual es:</h2>
-                <span id="saldoCliente"></span>
+                <h3>Tu saldo actual es:</h3>
+                <span id="saldoCliente" class="saldoMostrar"></span>
                 <img src="./assets/arrow_blanca.png" class="arrowButton" id="arrowSaldo" onclick="backArrowSaldo()" alt="">
             </section>
             <!-- OPCIONES CAJERO // AGREGAR SALDO -->
             <section id="agregarSaldo" class="card">
-                <h2>¿Cuánto dineo quieres ingresar?</h2>
-                <div class="saldoDiferente">
+                <h3>¿Cuánto dinero quieres ingresar?</h3>
+                <div class="saldoDiferente inputGlobal">
                     <input type="number" id="saldoIngresado" placeholder="Ingresa un monto diferente" />
-                    <button onclick="inputSaldo ()">Ingresar saldo</button>
+                    <span class="mensajeError" id="alertaCupo"></span>
                 </div>
-                <span class="mensajeError" id="alertaCupo"></span>
+                <button onclick="inputSaldo ()">Ingresar saldo</button>
                 <img src="./assets/arrow_blanca.png" class="arrowButton" id="arrowAgregar" onclick="backArrowAgregar()" alt="">
             </section>
             <!-- OPCIONES CAJERO // RETIRAR SALDO -->
             <section id="retirarSaldo" class="card">
-                <h2>¿Cuánto dineo quieres retirar?</h2>
-                <div class="saldoDiferente">
+                <h3>¿Cuánto dineo quieres retirar?</h3>
+                <div class="saldoDiferente inputGlobal">
                     <input type="number" id="saldoIngresadoRetirar" placeholder="Ingresa un monto diferente" />
-                    <button onclick="inputSaldoRetiro ()">Retirar saldo</button>
+                    <span class="mensajeError" id="alertaCupoRetiro"></span>
                 </div>
-                <span class="mensajeError" id="alertaCupoRetiro"></span>
+                <button onclick="inputSaldoRetiro ()">Retirar saldo</button>
                 <img src="./assets/arrow_blanca.png" class="arrowButton" id="arrowRetirar" onclick="backArrowRetirar()" alt="">
             </section>
             <!-- OPCIONES CAJERO // VER SALDO INGRESADO  Y TOTAL -->
             <section id="saldoTotal" class="card">
-                <h2>Acabas de ingresar:</h2>
-                <span id="saldoIngresadoCliente">$</span>
-                <h2>El total en tu cuenta es de:</h2>
-                <span id="saldoTotalCliente"></span>
+                <h3 id="tituloSaldo"></h3>
+                <span id="saldoIngresadoCliente" class="saldoMostrar">$</span>
+                <h3>El total en tu cuenta es de:</h3>
+                <span id="saldoTotalCliente" class="saldoMostrar"></span>
                 <img src="./assets/arrow_blanca.png" class="arrowButton" id="arrowVerSaldo" onclick="backArrowVerSaldo()" alt="">
             </section>
         </section>
