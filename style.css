@@ -6,6 +6,8 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+/*Font-size: clamp();*/
+
 body {
     background-image: url(./assets/background.webp);
     background-repeat: no-repeat;
@@ -20,6 +22,15 @@ h2 {
     text-align: center;
     font-size: 32px;
     font-weight: 800;
+    margin-block: 20px ;
+}
+
+h3 {
+    text-align: center;
+    font-size: 28px;
+    line-height: 1.1;
+    font-weight: 800;
+    margin-block: 5px;
 }
 
 /* --- BUTTON --- */
@@ -33,7 +44,7 @@ button {
     background: rgba(255,255, 255, 0.3);
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
-    margin: 20px 15px;
+    margin: 5px 5px;
     font-weight: 600;
     transition: ease .2s;
 }
@@ -54,7 +65,7 @@ input {
     width: 250px;
     border-radius: 50px;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 input:focus {
@@ -76,30 +87,19 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0; 
 }
 
-.arrowButton {
-    cursor: pointer;
-    width: 35px;
-    background: linear-gradient(125deg, rgba(255,252,2,1) 0%, rgba(210,84,0,1) 100%);
-    border-radius: 50%;
-    box-shadow: 0 0 8px rgba(0,0,0,.8) ;
-    transition: ease .2s;
-}
-
-.arrowButton:hover {
-    transform: scale(1.1);
-}
-
 /* --- CAJERO GLOBAL --- */
 
 .cajero {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     border-radius: 20px;
-    width: 650px;
-    height: 450px;
+    width: 80%;
+    max-width: 650px;
+
     max-height: 600px;
-    margin-block: 20px;
+    margin: 40px;
     padding: 20px;
     background: rgba(255,255,255,0.65);
     backdrop-filter: blur(6px);
@@ -115,8 +115,22 @@ input[type=number]::-webkit-outer-spin-button {
 
 .imgLogo {
     width: 100%;
-    max-width: 350px;
+    max-width: 450px;
     margin: 60px 0;
+}
+
+.arrowButton {
+    cursor: pointer;
+    width: 35px;
+    background: linear-gradient(125deg, rgba(255,252,2,1) 0%, rgba(210,84,0,1) 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(0,0,0,.8) ;
+    transition: ease .2s;
+    margin: 20px;
+}
+
+.arrowButton:hover {
+    transform: scale(1.1);
 }
 
 /* --- SECCIÓNES INTERNAS --- */
@@ -131,17 +145,27 @@ input[type=number]::-webkit-outer-spin-button {
 
 .botonesOpciones {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
+    justify-content: center;
 }
 
-.saldoDiferente {
+.inputGlobal {
     display: flex;
-    align-self: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.saldoMostrar {
+    font-size: clamp(1.2rem, 5vh, 18rem);
 }
 
 .clave {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
 }
 
 .claveVertical {
@@ -167,11 +191,12 @@ input[type=number]::-webkit-outer-spin-button {
     color: red;
     width: 250px;
     text-align: center;
+    margin-block: 5px;
 }
 
 
-#saldoCliente, #saldoIngresadoCliente, #saldoTotalCliente {
+/* #saldoCliente, #saldoIngresadoCliente, #saldoTotalCliente {
     font-size: 22px;
     margin: 15px 0;
-}
+} */
 

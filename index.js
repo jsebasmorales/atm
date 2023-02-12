@@ -134,13 +134,18 @@ function mostrarTransacción (saldoIngresado, saldoActual) {
     document.getElementById("agregarSaldo").style.display = "none";
     document.getElementById("saldoTotal").style.display = "inherit";
 
+    const tituloRetiro = document.createTextNode (`Ingresaste:`);
+    const mostrarTitulo = document.getElementById ("tituloSaldo");
+    mostrarTitulo.innerHTML = "";
+    mostrarTitulo.appendChild (tituloRetiro);
+
     const dineroIngresado = document.createTextNode (`$${saldoIngresado}`);
     const mostrarDinero = document.getElementById("saldoIngresadoCliente");
+    mostrarDinero.style.color = "#06731f";
     mostrarDinero.innerHTML = "";
     mostrarDinero.appendChild (dineroIngresado);
 
     const dinerototal = document.createTextNode (`$${saldoActual}`);
-    saldoActual = saldoIngresado + saldoActual;
     const mostrarTotal = document.getElementById ("saldoTotalCliente");
     mostrarTotal.innerHTML = "";
     mostrarTotal.appendChild (dinerototal);
@@ -185,8 +190,14 @@ function mostrarTransacciónRetiro (saldoIngresado, saldoActual) {
     document.getElementById("retirarSaldo").style.display = "none";
     document.getElementById("saldoTotal").style.display = "inherit";
 
+    const tituloRetiro = document.createTextNode (`Retiraste:`);
+    const mostrarTitulo = document.getElementById ("tituloSaldo");
+    mostrarTitulo.innerHTML = "";
+    mostrarTitulo.appendChild (tituloRetiro);
+
     const dineroIngresado = document.createTextNode (`$${saldoIngresado}`);
     const mostrarDinero = document.getElementById("saldoIngresadoCliente");
+    mostrarDinero.style.color = "#ff2f00";
     mostrarDinero.innerHTML = "";
     mostrarDinero.appendChild (dineroIngresado);
 
