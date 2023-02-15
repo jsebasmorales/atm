@@ -4,7 +4,6 @@ let cuentas = [
     {nombre: "Maui", saldo: 67, password: 1234}
 ];
 
-
 // Variables Globales
 let usuarioActual = 0;
 let saldoActual = 0;
@@ -93,8 +92,6 @@ function verSaldo () {
     mensajeSaldo.appendChild(saldoUsuario);
 }
 
-
-
 // Ingresar Saldo
 function ingresarSaldo () {
     document.getElementById("opcionesCajero").style.display = "none";
@@ -124,7 +121,6 @@ function checkSaldo (saldoIngresado) {
         mensajeUsuario.appendChild (mensajeError);
     } else {
         saldoActual += saldoIngresado;
-        console.log (saldoActual);
         mostrarTransacción (saldoIngresado, saldoActual);
     }
 }
@@ -173,8 +169,6 @@ function inputSaldoRetiro () {
 
 // Valida el monto ingresado.
 function checkSaldoRetirar (saldoIngresado) {
-    console.log (saldoIngresado);
-    console.log (saldoActual);
     if ((saldoActual - saldoIngresado) < 10){
         const mensajeError = document.createTextNode ("Debes dejar mínimo $10 en tu cuenta. Ingresa un valor inferior.")
         const mensajeUsuario = document.getElementById ("alertaCupoRetiro");
